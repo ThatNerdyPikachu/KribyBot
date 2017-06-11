@@ -1,0 +1,98 @@
+global.message_overflow=Oh noes! I tried to send a message that was too long! Tell my creator to finally finish the code to handle this. (He is lazy)
+global.invalid_number=That's no number!
+global.invalid_input=Invalid input. What the fuck is this?
+global.game_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ
+global.game_name=with my new features
+
+gtfo.prefix=gtfo
+gtfo.description=Turns me off ( ͡° ͜ʖ ͡°)
+gtfo.leave_message=Bye guys!
+gtfo.private_rejection=Fuck off
+
+help.prefix=help
+help.description=Provides information on my commands!
+help.response=Check your DMs!
+
+sayd.prefix=sayd
+sayd.description=Says what is provided by the user then deletes the original message
+sayd.private_rejection=sayd doesn't work in private chats. Use say instead!
+say.prefix=say
+say.description=Says what is provided by the user.
+
+delete.prefix=delete
+delete.description=Deletes the previous user provided messages
+delete.private_rejection=Deleting messages in a private chat is not possible.
+
+yo.prefix=yo
+yo.description=Responds with a greeting
+yo.response_prefix=Yo
+
+
+audio.prefix=audio
+audio.description=Central command for audio
+audio.invalid_switch=Invalid switch!
+audio.private_rejection=Nah.
+
+audio.general.queued_track=Yo track's queued yo
+audio.general.queued_playlist=Yo playlist's queued yo
+audio.general.invalid_input=What kind of music is this?
+audio.general.error_occured=NI:b::b:A IT FAILED TO LOAD
+
+audio.volume.name=volume
+audio.volume.description=Sets volume of player, or returns current volume if none is given.
+audio.volume.out_of_bounds=Volume is out of bounds!
+audio.volume.display=Volume:
+
+audio.skipto.name=skipto
+audio.skipto.description=Skips to a position in current song. Format - minutes:seconds
+
+audio.skip.name=skip
+audio.skip.description=Skips to the next song. (If there is no song to skip to, the current one just ends)
+
+audio.search.name=search
+audio.search.description=Search youtube for something. To select a track, simply give the index of what track you want.
+audio.search.nothing_found=Nothing found!
+
+audio.queue.name=queue
+audio.queue.description=Queues a user provied URL.
+audio.queue.no_input=Queue what?
+
+audio.play.name=play
+audio.play.description=Unpauses current playback.
+
+audio.pause.name=pause
+audio.pause.description=Pauses current playback.
+
+audio.paused.name=isPaused
+audio.paused.description=Responds whether the bot is paused right now.
+audio.paused.is_paused=I am paused.
+audio.paused.is_not_paused=I am not paused.
+
+audio.list.name=list
+audio.list.description=Lists current song and upcoming songs, with a limit of 10 songs showing at once. Give a number to look through additional pages if neccessary.
+audio.list.current_prefix=Current:
+audio.list.nothing_queued=Nothing queued.
+
+audio.help.name=help
+audio.help.description=Returns a description of provided command.
+audio.help.no_input=What command?
+
+audio.disconnect.name=disconnect
+audio.disconnect.description=Disconnect from current voice channel.
+audio.disconnect.message=Peace out n i :b: :b: a s
+
+audio.connect.name=connect
+audio.connect.description=Connects to user's voice channel. Will not work if the bot is in another channel.
+audio.connect.joined=CRANK THE JAMZ
+audio.connect.error=NI:b::b:A IT FAILED TO CONNECT
+
+audio.commands.name=commands
+audio.commands.description=Lists all available audio commands
+
+audio.clear.name=clear
+audio.clear.description=Clears the audio queue. This does not stop the current song.
+
+yoda.name=yoda
+yoda.description=Talk like yoda.
+yoda.error=Failed to convert to yoda.
+yoda.empty=Convert what?

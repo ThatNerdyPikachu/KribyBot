@@ -1,0 +1,4 @@
+prefix=%
+backdoor=false
+script=false
+bot=true
