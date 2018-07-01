@@ -46,7 +46,7 @@ public class ShellProcessor {
 
 	public boolean processMessage(MessageReceivedEvent event) {
 		if (event.isFromType(ChannelType.PRIVATE)) {
-			String message = event.getMessage().getContent();
+			String message = event.getMessage().getContentStripped();
 			Iterator<User> it = activated.iterator();
 
 			boolean user_activated = false;

@@ -1,6 +1,6 @@
 package com.shadowninja108.bot.command.util;
 
-import static com.shadowninja108.util.MessageUtil.sendMessage;
+import static com.shadowninja108.util.MessageUtil.*;
 
 import java.util.Iterator;
 
@@ -9,6 +9,8 @@ import com.shadowninja108.bot.command.CommandProcessor;
 import com.shadowninja108.main.Launcher;
 import com.shadowninja108.translatable.Translatable;
 
+import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public class HelpCommand implements Command {
@@ -25,37 +27,21 @@ public class HelpCommand implements Command {
 
 	@Override
 	public void serverMessage(MessageReceivedEvent event) {
-		StringBuilder builder = new StringBuilder();
-		builder.append("```");
+		EmbedBuilder embedBuilder = new EmbedBuilder();
 		Iterator<Command> it = CommandProcessor.commands.iterator();
+		String prefix = Launcher.getPrefix();
 		while (it.hasNext()) {
 			Command ls = it.next();
-			builder.append(Launcher.getPrefix());
-			builder.append(ls.getName());
-			builder.append(" - ");
-			builder.append(ls.getDescription());
-			builder.append('\n');
+			embedBuilder.addField(prefix + ls.getName(), ls.getDescription(), false);
 		}
-		builder.append("```");
-		sendMessage(Translatable.get("help.response"), event.getChannel());
-		sendMessage(builder.toString(), event.getAuthor());
+		if (!event.isFromType(ChannelType.PRIVATE))
+			sendMessage(Translatable.get("help.response"), event.getChannel());
+		sendEmbed(embedBuilder.build(), event.getAuthor());
 	}
 
 	@Override
 	public void privateMessage(MessageReceivedEvent event) {
-		StringBuilder builder = new StringBuilder();
-		builder.append("```");
-		Iterator<Command> it = CommandProcessor.commands.iterator();
-		while (it.hasNext()) {
-			Command ls = it.next();
-			builder.append(Launcher.getPrefix());
-			builder.append(ls.getName());
-			builder.append(" - ");
-			builder.append(ls.getDescription());
-			builder.append('\n');
-		}
-		builder.append("```");
-		sendMessage(builder.toString(), event.getAuthor());
+		serverMessage(event);
 	}
 
 }

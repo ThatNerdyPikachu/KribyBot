@@ -2,10 +2,10 @@ global.message_overflow=Oh noes! I tried to send a message that was too long! Te
 global.invalid_number=That's no number!
 global.invalid_input=Invalid input. What the fuck is this?
 global.game_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ
-global.game_name=with my new features
+global.game_name= with 🅱oneless 🅱izza
 
-gtfo.prefix=gtfo
-gtfo.description=Turns me off ( ͡° ͜ʖ ͡°)
+gtfo.prefix=gtfo 
+gtfo.description=Turns me off ( Í¡Â° ÍœÊ– Í¡Â°)
 gtfo.leave_message=Bye guys!
 gtfo.private_rejection=Fuck off
 
@@ -29,7 +29,7 @@ yo.response_prefix=Yo
 
 
 audio.prefix=audio
-audio.description=Central command for audio
+audio.description=Central command for audio. Use audio commands to see more functions.
 audio.invalid_switch=Invalid switch!
 audio.private_rejection=Nah.
 
@@ -37,6 +37,9 @@ audio.general.queued_track=Yo track's queued yo
 audio.general.queued_playlist=Yo playlist's queued yo
 audio.general.invalid_input=What kind of music is this?
 audio.general.error_occured=NI:b::b:A IT FAILED TO LOAD
+audio.general.now_playing=Now playing 
+audio.general.unknown_title=an unknown song.
+audio.general.request_by=Requested by: 
 
 audio.volume.name=volume
 audio.volume.description=Sets volume of player, or returns current volume if none is given.
@@ -92,7 +95,20 @@ audio.commands.description=Lists all available audio commands
 audio.clear.name=clear
 audio.clear.description=Clears the audio queue. This does not stop the current song.
 
+audio.loop.name=loop
+audio.loop.description=Sets looping state. If no state is provided, it will respond with the current state.
+audio.loop.isLooping=I am looping.
+audio.loop.notLooping= I am not looping.
+
+audio.info.name=info
+audio.info.description=Gets description of an audio track in queue.
+
+audio.silent.name=silent
+audio.silent.description=Silence the message when a track starts.
+audio.silent.isSilent=I am silenced.
+audio.silent.notSilent=I am ready to message.
+
 yoda.name=yoda
-yoda.description=Talk like yoda.
+yoda.description=Deprecated. Will remove soon.
 yoda.error=Failed to convert to yoda.
 yoda.empty=Convert what?

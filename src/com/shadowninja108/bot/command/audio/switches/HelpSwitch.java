@@ -22,7 +22,7 @@ public class HelpSwitch implements AudioSwitch {
 	}
 
 	@Override
-	public void execute(MessageReceivedEvent event, String[] args, AudioCommand command) {
+	public void execute(MessageReceivedEvent event, String[] args) {
 		if (args.length > 0) {
 			Iterator<AudioSwitch> switches = AudioCommand.switches.iterator();
 			while (switches.hasNext()) {
@@ -33,7 +33,7 @@ public class HelpSwitch implements AudioSwitch {
 				}
 			}
 		} else
-			sendMessage(Translatable.get("audio.list.no_input"), event.getChannel());
+			sendMessage(Translatable.get("audio.help.no_input"), event.getChannel());
 	}
 
 }

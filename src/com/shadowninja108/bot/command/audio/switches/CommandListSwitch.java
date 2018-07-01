@@ -22,7 +22,7 @@ public class CommandListSwitch implements AudioSwitch {
 	}
 
 	@Override
-	public void execute(MessageReceivedEvent event, String[] args, AudioCommand command) {
+	public void execute(MessageReceivedEvent event, String[] args) {
 		Iterator<AudioSwitch> it = AudioCommand.switches.iterator();
 		StringBuilder builder = new StringBuilder();
 		builder.append("```");

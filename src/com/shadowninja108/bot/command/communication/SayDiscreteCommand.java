@@ -22,7 +22,7 @@ public class SayDiscreteCommand implements Command {
 	@Override
 	public void serverMessage(MessageReceivedEvent event) {
 		deleteMessage(event.getMessage());
-		String message = event.getMessage().getRawContent();
+		String message = event.getMessage().getContentRaw();
 		int i = message.indexOf(" ");
 		if (i > 0) {
 			message = message.substring(i + 1);

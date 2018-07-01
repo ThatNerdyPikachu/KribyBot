@@ -22,7 +22,7 @@ public class GTFOCommand implements Command {
 	@Override
 	public void serverMessage(MessageReceivedEvent event) {
 		sendMessage(Translatable.get("gtfo.leave_message"), event.getChannel());
-		event.getJDA().shutdown(true);
+		event.getJDA().shutdown();
 		System.exit(0);
 	}
 

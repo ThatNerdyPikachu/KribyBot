@@ -15,6 +15,7 @@ public abstract class AutoReader<K, V> {
 
 	protected Map<K, V> options;
 	protected Callable<InputStream> callable;
+	
 	protected String previousHash;
 	
 	public AutoReader(Callable<InputStream> callable){
@@ -29,7 +30,7 @@ public abstract class AutoReader<K, V> {
 		try {
 			read();
 		} catch (IOException e) {
-			System.out.println("An error occurred reading.");
+			System.out.println("An error occurred on reading.");
 			e.printStackTrace();
 		}
 		previousHash = getNewHash();
@@ -41,7 +42,7 @@ public abstract class AutoReader<K, V> {
 
 	private String getNewHash() {
 		try {
-			return DigestUtils.sha256Hex(getInputStream());
+			return DigestUtils.md5Hex(getInputStream());
 		} catch (IOException e) {
 			System.out.println("Failed to get hash!");
 			e.printStackTrace();
@@ -49,7 +50,7 @@ public abstract class AutoReader<K, V> {
 		return null;
 	}
 
-	public void setAutoUpdateable(boolean b) {
+	public void setAutoUpdatable(boolean b) {
 		if (autoUpdate && !b)
 			handleRead();
 		autoUpdate = b;

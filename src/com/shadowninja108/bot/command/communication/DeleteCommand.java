@@ -25,7 +25,7 @@ public class DeleteCommand implements Command {
 
 	@Override
 	public void serverMessage(MessageReceivedEvent event) {
-		String message = event.getMessage().getContent();
+		String message = event.getMessage().getContentDisplay();
 		message = message.substring(message.indexOf(" "));
 		String[] params = ShellProcessor.processString(message);
 		int amount = 1;

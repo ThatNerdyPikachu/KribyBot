@@ -26,7 +26,7 @@ public class YoCommand implements Command {
 
 	@Override
 	public void privateMessage(MessageReceivedEvent event) {
-		sendMessage(Translatable.get("yo.response_prefix") + " " + event.getAuthor().getAsMention(), event.getAuthor());
+		serverMessage(event);
 	}
 
 }

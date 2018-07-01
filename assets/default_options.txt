@@ -1,4 +1,6 @@
 prefix=%
 backdoor=false
+commands=true
 script=false
 bot=true
+debug=false

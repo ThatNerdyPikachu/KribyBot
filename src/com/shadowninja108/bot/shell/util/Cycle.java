@@ -28,7 +28,7 @@ public class Cycle extends ShellCommand {
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
 		String[] split = ShellProcessor.processString(args[0]);
 		for (int i = 0; i < split.length; i++) {
-			selected.getRole().getManager().setName(split[i]).complete();
+			selected.getGuild().getController().setNickname(selected.getMember(), split[i]).complete();
 			try {
 				Thread.sleep(4000);
 			} catch (InterruptedException e) {
@@ -39,7 +39,7 @@ public class Cycle extends ShellCommand {
 
 	@Override
 	public boolean meetsRequirements(selected selected) {
-		return selected.equals(Selected.selected.ROLE);
+		return selected.equals(Selected.selected.MEMBER);
 	}
 
 }

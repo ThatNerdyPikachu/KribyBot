@@ -7,15 +7,19 @@ import java.util.concurrent.Callable;
 
 import com.shadowninja108.bot.listener.BotListener;
 import com.shadowninja108.main.Launcher;
-import com.shadowninja108.util.MyGame;
+import com.shadowninja108.translatable.Translatable;
 import com.shadowninja108.util.reader.ScriptReader;
 
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.core.entities.Game.GameType;
 
 public class UberCoolBot {
 	private JDABuilder builder;
+
 	public static ScriptReader reader;
+	public static boolean debug;
 
 	boolean started = false;
 
@@ -23,7 +27,8 @@ public class UberCoolBot {
 		String token = Launcher.options.get("token");
 		boolean isBot = Boolean.parseBoolean(Launcher.options.get("bot"));
 		boolean needScript = Boolean.parseBoolean(Launcher.options.get("script"));
-		
+		debug = Boolean.parseBoolean(Launcher.options.get("debug"));
+
 		if (needScript) {
 			File file = new File("./script.txt");
 			if (file.exists()) {
@@ -37,11 +42,10 @@ public class UberCoolBot {
 			} else
 				System.out.println("Script.txt does not exist! Skipping...");
 		}
-		Launcher.factory.getLogger("main").info("Booting as a " + (isBot ? "bot" : "user"));
+		System.out.println("Booting as a " + (isBot ? "bot" : "user"));
 		builder = new JDABuilder((isBot) ? AccountType.BOT : AccountType.CLIENT);
 		builder.setToken(token);
-		if (isBot)
-			builder.setGame(new MyGame());
+		builder.setGame(Game.of(GameType.WATCHING, Translatable.get("global.game_name"), Translatable.get("global.game_url")));
 	}
 
 	public void register() {

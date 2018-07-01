@@ -27,7 +27,7 @@ public class SendMessage extends ShellCommand {
 
 	@Override
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
-		String message = event.getMessage().getRawContent();
+		String message = event.getMessage().getContentRaw();
 		message = message.substring(message.indexOf(" "));
 		TextChannel channel = selected.getTextChannel();
 		if (channel.canTalk())

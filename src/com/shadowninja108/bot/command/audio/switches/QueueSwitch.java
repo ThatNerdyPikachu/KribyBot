@@ -1,6 +1,6 @@
 package com.shadowninja108.bot.command.audio.switches;
 
-import com.shadowninja108.bot.command.audio.AudioCommand;
+import com.shadowninja108.bot.command.CommandProcessor;
 import com.shadowninja108.bot.command.audio.AudioResult;
 import com.shadowninja108.translatable.Translatable;
 
@@ -20,9 +20,9 @@ public class QueueSwitch implements AudioSwitch {
 	}
 
 	@Override
-	public void execute(MessageReceivedEvent event, String[] args, AudioCommand command) {
+	public void execute(MessageReceivedEvent event, String[] args) {
 		if (args.length > 0)
-			command.playerManager.loadItem(args[0], new AudioResult(command.getManager(event.getGuild()), event));
+			CommandProcessor.playerManager.loadItem(args[0], new AudioResult(CommandProcessor.getGuildData(event.getGuild()).getMusicManager(), event));
 		else
 			sendMessage(Translatable.get("audio.queue.no_input"), event.getChannel());
 	}

@@ -5,6 +5,8 @@ import com.sedmelluq.discord.lavaplayer.track.playback.AudioFrame;
 
 import net.dv8tion.jda.core.audio.AudioSendHandler;
 
+// lavaplayer <-> JDA link
+// not written by me
 public class AudioPlayerSendHandler implements AudioSendHandler {
 	private final AudioPlayer audioPlayer;
 	private AudioFrame lastFrame;
@@ -21,7 +23,7 @@ public class AudioPlayerSendHandler implements AudioSendHandler {
 
 	@Override
 	public byte[] provide20MsAudio() {
-		return lastFrame.data;
+		return lastFrame.getData();
 	}
 
 	@Override

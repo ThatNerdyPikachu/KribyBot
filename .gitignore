@@ -1,0 +1,7 @@
+.git .settings/ bin .classpath .project bot.jar options.txt target/
+/bin/
+/target/
+/options.txt
+/bot.jar
+/bot_debug.jar
+/run.bat

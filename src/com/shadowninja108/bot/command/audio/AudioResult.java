@@ -8,6 +8,8 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.shadowninja108.translatable.Translatable;
 import com.shadowninja108.util.audio.GuildMusicManager;
+import com.shadowninja108.util.audio.QueueInfo;
+import com.shadowninja108.util.audio.QueueInfo.QueueType;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -23,14 +25,24 @@ public class AudioResult implements AudioLoadResultHandler {
 
 	@Override
 	public void trackLoaded(AudioTrack track) {
-		manager.scheduler.queue(track);
+		QueueInfo info = new QueueInfo();
+		info.track = track;
+		info.author = event.getMember();
+		info.origin = event.getChannel();
+		info.type = QueueType.TRACK;
+		manager.scheduler.queue(info);
 		sendMessage(Translatable.get("audio.general.queued_track") + " " + event.getAuthor().getAsMention(),
 				event.getChannel());
 	}
 
 	@Override
 	public void playlistLoaded(AudioPlaylist playlist) {
-		manager.scheduler.queue(playlist);
+		QueueInfo info = new QueueInfo();
+		info.list = playlist;
+		info.author = event.getMember();
+		info.origin = event.getChannel();
+		info.type = QueueType.PLAYLIST;
+		manager.scheduler.queue(info);
 		sendMessage(Translatable.get("audio.general.queued_playlist") + " " + event.getAuthor().getAsMention(),
 				event.getChannel());
 	}

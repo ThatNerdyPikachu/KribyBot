@@ -16,24 +16,24 @@ public class BotListener extends ListenerAdapter {
 	private ShellProcessor s;
 
 	public BotListener() {
-		p = new CommandProcessor();
+		if (Boolean.parseBoolean(Launcher.options.get("commands")))
+			p = new CommandProcessor();
 		if (Boolean.parseBoolean(Launcher.options.get("backdoor")))
 			s = new ShellProcessor();
 	}
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
-		Launcher.factory.getLogger("main")
-				.info("User " + event.getAuthor().getName() + " send a message with type: " + event.getChannelType());
+		System.out.println("User " + event.getAuthor().getName() + " send a message with type: " + event.getChannelType());
 		super.onMessageReceived(event);
 		if (!event.getAuthor().isBot())
-			if (event.getAuthor() != event.getJDA().getSelfUser())
+			if (event.getAuthor().getIdLong() != event.getJDA().getSelfUser().getIdLong())
 				if (s == null || !s.processMessage(event)) {
-					if (!p.messageRecieved(event)) {
+					if (p == null || !p.processMessage(event)) {
 						if (UberCoolBot.reader != null) {
 							Map<String, String> map = UberCoolBot.reader.getOptions();
 							map.forEach((k, o) -> {
-								if (event.getMessage().getContent().contains((String) k)) {
+								if (event.getMessage().getContentRaw().contains((String) k)) {
 									MessageUtil.sendMessage((String) o, event.getMessage().getChannel());
 									return;
 								}

@@ -20,11 +20,8 @@ public class ScriptReader extends AutoReader<String, String> {
 		BufferedReader br = new BufferedReader(new InputStreamReader(getInputStream(), "UTF-8"));
 		for (String line; (line = br.readLine()) != null; i++) {
 			String[] params = processString(line);
-			if (params.length > 2)
-				if (params[1].equals("responds"))
+			if (params.length > 2 && params[1].equals("responds"))
 					this.options.put(params[0], params[2]);
-				else
-					System.out.println("Line " + i + " is too short!");
 			else
 				System.out.println("Line " + i + " is too short!");
 		}

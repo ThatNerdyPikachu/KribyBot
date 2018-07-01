@@ -21,7 +21,7 @@ public class SayCommand implements Command {
 
 	@Override
 	public void serverMessage(MessageReceivedEvent event) {
-		String message = event.getMessage().getRawContent();
+		String message = event.getMessage().getContentRaw();
 		int i = message.indexOf(" ");
 		if (i > 0) {
 			message = message.substring(i + 1);
@@ -32,13 +32,7 @@ public class SayCommand implements Command {
 
 	@Override
 	public void privateMessage(MessageReceivedEvent event) {
-		String message = event.getMessage().getContent();
-		int i = message.indexOf(" ");
-		if (i > 0) {
-			message = message.substring(i + 1);
-
-			sendMessage(message, event.getAuthor());
-		}
+		serverMessage(event);
 	}
 
 }

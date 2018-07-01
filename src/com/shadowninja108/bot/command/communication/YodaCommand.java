@@ -1,18 +1,9 @@
 package com.shadowninja108.bot.command.communication;
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import static com.shadowninja108.util.MessageUtil.sendMessage;
+
 import com.shadowninja108.bot.command.Command;
-import com.shadowninja108.main.Launcher;
 import com.shadowninja108.translatable.Translatable;
-
-import static com.shadowninja108.util.MessageUtil.*;
-
-import java.io.IOException;
-import java.net.URLEncoder;
-
-import org.apache.commons.io.IOUtils;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -30,7 +21,8 @@ public class YodaCommand implements Command {
 
 	@Override
 	public void serverMessage(MessageReceivedEvent event) {
-		String message = event.getMessage().getContent();
+		sendMessage("This command is deprecated.", event.getChannel());
+		/*String message = event.getMessage().getContent();
 		if (message.contains(" ")) {
 			message = message.substring(message.indexOf(" ")).trim();
 			if (!message.isEmpty()) {
@@ -51,12 +43,13 @@ public class YodaCommand implements Command {
 			} else
 				sendMessage(Translatable.get("yoda.empty"), event.getChannel());
 		} else
-			sendMessage(Translatable.get("yoda.empty"), event.getChannel());
+			sendMessage(Translatable.get("yoda.empty"), event.getChannel());*/
 	}
 
 	@Override
 	public void privateMessage(MessageReceivedEvent event) {
-		String message = event.getMessage().getContent();
+		sendMessage("This command is deprecated.", event.getAuthor());
+		/*String message = event.getMessage().getContent();
 		if (message.contains(" ")) {
 			message = message.substring(message.indexOf(" ")).trim();
 			if (!message.isEmpty()) {
@@ -77,7 +70,7 @@ public class YodaCommand implements Command {
 			} else
 				sendMessage(Translatable.get("yoda.empty"), event.getAuthor());
 		} else
-			sendMessage(Translatable.get("yoda.empty"), event.getAuthor());
+			sendMessage(Translatable.get("yoda.empty"), event.getAuthor());*/
 	}
 
 }
