@@ -10,10 +10,10 @@ import com.shadowninja108.main.Launcher;
 import com.shadowninja108.translatable.Translatable;
 import com.shadowninja108.util.reader.ScriptReader;
 
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.entities.Game;
-import net.dv8tion.jda.core.entities.Game.GameType;
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Activity.ActivityType;;
 
 public class UberCoolBot {
 	private JDABuilder builder;
@@ -45,21 +45,17 @@ public class UberCoolBot {
 		System.out.println("Booting as a " + (isBot ? "bot" : "user"));
 		builder = new JDABuilder((isBot) ? AccountType.BOT : AccountType.CLIENT);
 		builder.setToken(token);
-		builder.setGame(Game.of(GameType.WATCHING, Translatable.get("global.game_name"), Translatable.get("global.game_url")));
+		builder.setActivity(Activity.of(ActivityType.WATCHING, Translatable.get("global.game_name"), Translatable.get("global.game_url")));
 	}
 
 	public void register() {
-		builder.addEventListener(new BotListener());
+		builder.addEventListeners(new BotListener());
 	}
 
-	public void start(boolean async) {
+	public void start() {
 		try {
 			if (!started) {
-				if (async) {
-					builder.buildAsync();
-				} else {
-					builder.buildBlocking();
-				}
+				builder.build();
 				started = true;
 			} else {
 				System.out.println("Bot already started!");

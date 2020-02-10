@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioSourceManager;
+import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack;
 import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeSearchProvider;
 import com.sedmelluq.discord.lavaplayer.track.AudioItem;
 import com.sedmelluq.discord.lavaplayer.track.AudioReference;
@@ -17,7 +18,7 @@ import com.shadowninja108.util.audio.GuildData;
 import com.shadowninja108.util.audio.QueueInfo;
 import com.shadowninja108.util.audio.QueueInfo.QueueType;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class SearchSwitch implements AudioSwitch {
 	@Override
@@ -34,10 +35,10 @@ public class SearchSwitch implements AudioSwitch {
 	public void execute(MessageReceivedEvent event, String[] args) {
 		if (args.length > 0) {
 			YoutubeAudioSourceManager ytManager = new YoutubeAudioSourceManager();
-			YoutubeSearchProvider searchProvider = new YoutubeSearchProvider(ytManager);
+			YoutubeSearchProvider searchProvider = new YoutubeSearchProvider();
 			GuildData audioData = CommandProcessor.getGuildData(event.getGuild());
 			if (!getFromSearch(args[0], audioData, event)) {
-				AudioItem item = searchProvider.loadSearchResult(args[0]);
+				AudioItem item = searchProvider.loadSearchResult(args[0], (info) -> new YoutubeAudioTrack(info, ytManager));
 				if (item != AudioReference.NO_TRACK) {
 					audioData.lastSearch = (BasicAudioPlaylist) item;
 					Iterator<AudioTrack> tracks = audioData.lastSearch.getTracks().iterator();

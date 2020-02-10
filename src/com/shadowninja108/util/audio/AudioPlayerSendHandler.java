@@ -1,9 +1,11 @@
 package com.shadowninja108.util.audio;
 
+import java.nio.ByteBuffer;
+
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.AudioFrame;
 
-import net.dv8tion.jda.core.audio.AudioSendHandler;
+import net.dv8tion.jda.api.audio.AudioSendHandler;
 
 // lavaplayer <-> JDA link
 // not written by me
@@ -20,10 +22,10 @@ public class AudioPlayerSendHandler implements AudioSendHandler {
 		lastFrame = audioPlayer.provide();
 		return lastFrame != null;
 	}
-
+%
 	@Override
-	public byte[] provide20MsAudio() {
-		return lastFrame.getData();
+	public ByteBuffer provide20MsAudio() {
+		return ByteBuffer.wrap(lastFrame.getData());
 	}
 
 	@Override

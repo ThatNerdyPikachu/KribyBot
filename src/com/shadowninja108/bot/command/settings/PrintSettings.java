@@ -5,7 +5,7 @@ import com.shadowninja108.bot.command.CommandProcessor;
 import com.shadowninja108.util.MessageUtil;
 import com.shadowninja108.util.setting.SettingsInstance;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class PrintSettings implements Command {
 
@@ -29,7 +29,9 @@ public class PrintSettings implements Command {
 			builder.append(v);
 			builder.append('\n');
 		});
-		MessageUtil.sendMessage(builder.toString(), event.getChannel());
+		
+		if(builder.length() > 0)
+			MessageUtil.sendMessage(builder.toString(), event.getChannel());
 	}
 
 	@Override

@@ -36,7 +36,7 @@ import com.shadowninja108.bot.shell.ShellProcessor;
 import com.shadowninja108.util.FontHelper;
 import com.shadowninja108.util.JarFile;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class Understandable implements Command {
 

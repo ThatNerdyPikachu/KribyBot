@@ -8,8 +8,8 @@ import com.shadowninja108.bot.shell.ShellProcessor;
 import com.shadowninja108.main.Launcher;
 import com.shadowninja108.util.MessageUtil;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class BotListener extends ListenerAdapter {
 	private CommandProcessor p;

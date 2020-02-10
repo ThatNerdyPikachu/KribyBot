@@ -10,10 +10,10 @@ import java.util.Map;
 
 import com.shadowninja108.util.reader.OptionReader;
 
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageHistory;
-import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageHistory;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 public class SettingsInstance {
 	private static final String CHANNEL_NAME = "kriby-settings";
@@ -39,8 +39,8 @@ public class SettingsInstance {
 			MessageHistory history = channel.getHistory();
 			Message message = history.retrievePast(1).complete().get(0);
 			if (!history.isEmpty()) {
-				OffsetDateTime editTime = message.getEditedTime();
-				if (editTime == null) editTime = message.getCreationTime(); // edited time is null if it was never edited
+				OffsetDateTime editTime = message.getTimeEdited();
+				if (editTime == null) editTime = message.getTimeCreated(); // edited time is null if it was never edited
 				if (editTime.isAfter(lastEdit)) {
 					lastEdit = editTime;
 					Map<String, String> map = parse(message.getContentRaw());

@@ -22,9 +22,9 @@ import com.shadowninja108.bot.shell.role.WriteToRole;
 import com.shadowninja108.bot.shell.util.Cycle;
 import com.shadowninja108.bot.shell.util.ExceptionTest;
 
-import net.dv8tion.jda.core.entities.ChannelType;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ShellProcessor {
 
@@ -96,7 +96,7 @@ public class ShellProcessor {
 						return exec;
 					}
 				}
-			} else if (message.equals("up up down down left right left right b a start")) {
+			} else if (message.equals("uwu owo uwu")) {
 				activated.add(event.getAuthor());
 				sendMessage("Shell activated. ( ͡° ͜ʖ ͡°)", event.getAuthor());
 			}

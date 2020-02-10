@@ -7,7 +7,7 @@ import java.util.Iterator;
 import com.shadowninja108.bot.command.audio.AudioCommand;
 import com.shadowninja108.translatable.Translatable;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CommandListSwitch implements AudioSwitch {
 

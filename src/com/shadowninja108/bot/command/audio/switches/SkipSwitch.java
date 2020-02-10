@@ -6,7 +6,7 @@ import com.shadowninja108.translatable.Translatable;
 import static com.shadowninja108.util.MessageUtil.*;
 import com.shadowninja108.util.audio.GuildMusicManager;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class SkipSwitch implements AudioSwitch {
 

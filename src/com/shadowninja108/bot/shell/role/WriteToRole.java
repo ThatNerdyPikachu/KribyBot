@@ -1,15 +1,15 @@
 package com.shadowninja108.bot.shell.role;
 
+import java.util.EnumSet;
 import java.util.Iterator;
-import java.util.List;
 
 import com.shadowninja108.bot.shell.Selected;
 import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.exceptions.PermissionException;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.exceptions.PermissionException;
 
 import static com.shadowninja108.util.MessageUtil.*;
 
@@ -39,7 +39,7 @@ public class WriteToRole extends ShellCommand {
 			sendMessage("Unable to write to role due to a permission error.", event.getChannel());
 			return;
 		}
-		List<Permission> list = Permission.getPermissions(perms);
+		EnumSet<Permission> list = Permission.getPermissions(perms);
 		Iterator<Permission> it = list.iterator();
 		StringBuilder builder = new StringBuilder();
 		builder.append("```");

@@ -10,11 +10,11 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.requests.Requester;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.internal.requests.Requester;
 
 public class DiscordUtils {
 	public static Message findMessage(Guild guild, String messageId) {
@@ -22,7 +22,7 @@ public class DiscordUtils {
 		for (int i = 0; i < channels.size(); i++) {
 			TextChannel c = channels.get(i);
 			try {
-				return c.getMessageById(messageId).complete();
+				return c.retrieveMessageById(messageId).complete();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

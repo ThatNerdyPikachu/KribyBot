@@ -17,6 +17,7 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.shadowninja108.bot.command.audio.AudioCommand;
+import com.shadowninja108.bot.command.basic.FlipCommand;
 import com.shadowninja108.bot.command.basic.YoCommand;
 import com.shadowninja108.bot.command.communication.DeleteCommand;
 import com.shadowninja108.bot.command.communication.SayCommand;
@@ -39,13 +40,36 @@ import com.shadowninja108.util.MemeUtil;
 import com.shadowninja108.util.MessageUtil;
 import com.shadowninja108.util.audio.GuildData;
 
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.Message.Attachment;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.Message.Attachment;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CommandProcessor {
 
+	public class Woman implements Thot {
+
+		@Override
+		public void begone() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public boolean isQueen() {
+			return !hasBreathed;
+		}
+		
+		
+	}
+	
+	public interface Thot {
+		public boolean hasBreathed = true;
+		
+		public void begone();
+		public boolean isQueen();
+	}
+	
 	public static List<Command> commands;
 	public static AudioPlayerManager playerManager;
 
@@ -70,6 +94,7 @@ public class CommandProcessor {
 		commands.add(new AudioCommand());
 
 		commands.add(new YoCommand());
+		commands.add(new FlipCommand());
 
 		commands.add(new ExceptionTest());
 		commands.add(new HelpCommand());

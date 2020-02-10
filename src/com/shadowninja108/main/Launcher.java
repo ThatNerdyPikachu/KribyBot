@@ -36,7 +36,7 @@ public class Launcher {
 
 		bot.register();
 
-		bot.start(false);
+		bot.start();
 	}
 
 	private void setup() {

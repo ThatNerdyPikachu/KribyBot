@@ -9,9 +9,9 @@ import com.shadowninja108.bot.command.CommandProcessor;
 import com.shadowninja108.main.Launcher;
 import com.shadowninja108.translatable.Translatable;
 
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.ChannelType;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class HelpCommand implements Command {
 

@@ -2,7 +2,7 @@ package com.shadowninja108.bot.command.util;
 
 import com.shadowninja108.bot.command.Command;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ExceptionTest implements Command {
 

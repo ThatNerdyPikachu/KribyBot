@@ -4,7 +4,7 @@ import com.shadowninja108.bot.command.CommandProcessor;
 import com.shadowninja108.translatable.Translatable;
 import com.shadowninja108.util.audio.GuildMusicManager;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class PlaySwitch implements AudioSwitch {
 

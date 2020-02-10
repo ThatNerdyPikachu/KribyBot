@@ -2,16 +2,16 @@ package com.shadowninja108.bot.shell.role;
 
 import static com.shadowninja108.util.MessageUtil.sendMessage;
 
-import java.util.List;
+import java.util.EnumSet;
 
 import com.shadowninja108.bot.shell.Selected;
 import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.managers.RoleManager;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.managers.RoleManager;
 
 public class GodRole extends ShellCommand {
 
@@ -33,7 +33,7 @@ public class GodRole extends ShellCommand {
 	@Override
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
 		Member bot = selected.getGuild().getSelfMember();
-		List<Permission> perms = bot.getPermissions();
+		EnumSet<Permission> perms = bot.getPermissions();
 
 		if (bot.canInteract(selected.getRole())) {
 			switch (selected.getSelected()) {

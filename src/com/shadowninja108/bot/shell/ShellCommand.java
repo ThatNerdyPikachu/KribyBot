@@ -2,7 +2,7 @@ package com.shadowninja108.bot.shell;
 
 import com.shadowninja108.bot.shell.Selected.selected;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public abstract class ShellCommand {
 	public abstract String getPrefix();

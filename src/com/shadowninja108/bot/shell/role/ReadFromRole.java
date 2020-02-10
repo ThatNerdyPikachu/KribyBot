@@ -2,15 +2,15 @@ package com.shadowninja108.bot.shell.role;
 
 import static com.shadowninja108.util.MessageUtil.sendMessage;
 
+import java.util.EnumSet;
 import java.util.Iterator;
-import java.util.List;
 
 import com.shadowninja108.bot.shell.Selected;
 import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ReadFromRole extends ShellCommand {
 
@@ -31,7 +31,7 @@ public class ReadFromRole extends ShellCommand {
 
 	@Override
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
-		List<Permission> list = selected.getRole().getPermissions();
+		EnumSet<Permission> list = selected.getRole().getPermissions();
 		Iterator<Permission> it = list.iterator();
 		StringBuilder builder = new StringBuilder("```Permissions: \n");
 		while (it.hasNext()) {

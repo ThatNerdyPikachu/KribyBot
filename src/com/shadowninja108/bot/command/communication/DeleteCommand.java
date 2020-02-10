@@ -8,8 +8,8 @@ import com.shadowninja108.bot.command.Command;
 import com.shadowninja108.bot.shell.ShellProcessor;
 import com.shadowninja108.translatable.Translatable;
 
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class DeleteCommand implements Command {
 

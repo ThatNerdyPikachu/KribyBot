@@ -4,7 +4,7 @@ import com.shadowninja108.bot.shell.Selected;
 import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CreateRole extends ShellCommand {
 
@@ -25,7 +25,7 @@ public class CreateRole extends ShellCommand {
 
 	@Override
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
-		selected.getGuild().getController().createRole().complete();
+		selected.getGuild().createRole().complete();
 	}
 
 	@Override

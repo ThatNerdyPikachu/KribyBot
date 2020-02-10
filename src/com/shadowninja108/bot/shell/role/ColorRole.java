@@ -7,8 +7,8 @@ import com.shadowninja108.bot.shell.Selected;
 import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.managers.RoleManager;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.managers.RoleManager;
 
 public class ColorRole extends ShellCommand {
 

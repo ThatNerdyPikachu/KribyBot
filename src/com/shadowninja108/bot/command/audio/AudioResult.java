@@ -11,7 +11,7 @@ import com.shadowninja108.util.audio.GuildMusicManager;
 import com.shadowninja108.util.audio.QueueInfo;
 import com.shadowninja108.util.audio.QueueInfo.QueueType;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class AudioResult implements AudioLoadResultHandler {
 

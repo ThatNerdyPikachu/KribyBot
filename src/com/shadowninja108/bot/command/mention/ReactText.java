@@ -9,8 +9,8 @@ import com.shadowninja108.bot.shell.ShellProcessor;
 import com.shadowninja108.util.DiscordUtils;
 import com.shadowninja108.util.Emotes;
 
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ReactText implements Command {
 

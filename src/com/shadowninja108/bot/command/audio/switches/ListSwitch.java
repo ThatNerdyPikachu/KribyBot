@@ -10,7 +10,7 @@ import com.shadowninja108.translatable.Translatable;
 import com.shadowninja108.util.audio.GuildMusicManager;
 import com.shadowninja108.util.audio.QueueInfo;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ListSwitch implements AudioSwitch {
 

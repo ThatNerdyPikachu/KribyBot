@@ -4,7 +4,7 @@ import com.shadowninja108.bot.command.Command;
 import com.shadowninja108.bot.command.CommandProcessor;
 import com.shadowninja108.util.MessageUtil;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class RefreshCommand implements Command {
 	

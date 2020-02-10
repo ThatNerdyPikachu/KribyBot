@@ -5,12 +5,13 @@ import java.io.InputStream;
 import com.shadowninja108.main.Launcher;
 import com.shadowninja108.translatable.Translatable;
 
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.entities.MessageEmbed;
-import net.dv8tion.jda.core.entities.PrivateChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.requests.RestAction;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.PrivateChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.requests.RestAction;
+import net.dv8tion.jda.api.utils.AttachmentOption;
 
 public class MessageUtil {
 	public static void sendMessage(String message, MessageChannel channel) {
@@ -37,12 +38,12 @@ public class MessageUtil {
 	}
 
 	public static void sendFile(InputStream in, String fileName, MessageChannel channel) {
-		RestAction<Message> action = channel.sendFile(in, fileName, null);
+		RestAction<Message> action = channel.sendFile(in, fileName, (AttachmentOption) null);
 		action.queue();
 	}
 	
 	public static void sendFile(InputStream in, String fileName, PrivateChannel channel) {
-		RestAction<Message> action = channel.sendFile(in, fileName, null);
+		RestAction<Message> action = channel.sendFile(in, fileName, (AttachmentOption) null);
 		action.queue();
 	}
 	public static void sendEmbed(MessageEmbed embed , MessageChannel channel) {

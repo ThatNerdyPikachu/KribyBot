@@ -6,8 +6,8 @@ import com.shadowninja108.bot.shell.Selected;
 import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 
-import net.dv8tion.jda.core.entities.Role;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class GiveRole extends ShellCommand {
 
@@ -29,7 +29,7 @@ public class GiveRole extends ShellCommand {
 	@Override
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
 		List<Role> roles = selected.getGuild().getRolesByName(args[0], true);
-		selected.getGuild().getController().modifyMemberRoles(selected.getMember(), roles.get(0)).complete();
+		selected.getGuild().modifyMemberRoles(selected.getMember(), roles.get(0)).complete();
 	}
 
 	@Override

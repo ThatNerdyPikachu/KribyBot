@@ -5,7 +5,7 @@ import com.shadowninja108.bot.shell.Selected.selected;
 import com.shadowninja108.bot.shell.ShellCommand;
 import com.shadowninja108.bot.shell.ShellProcessor;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class Cycle extends ShellCommand {
 
@@ -28,7 +28,7 @@ public class Cycle extends ShellCommand {
 	public void execute(String[] args, Selected selected, MessageReceivedEvent event) {
 		String[] split = ShellProcessor.processString(args[0]);
 		for (int i = 0; i < split.length; i++) {
-			selected.getGuild().getController().setNickname(selected.getMember(), split[i]).complete();
+			selected.getGuild().modifyNickname(selected.getMember(), split[i]).complete();
 			try {
 				Thread.sleep(4000);
 			} catch (InterruptedException e) {
