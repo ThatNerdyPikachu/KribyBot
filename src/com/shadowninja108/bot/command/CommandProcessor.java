@@ -46,6 +46,29 @@ import net.dv8tion.jda.api.entities.Message.Attachment;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CommandProcessor {
+
+	public class Woman implements Thot {
+
+		@Override
+		public void begone() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public boolean isQueen() {
+			return !hasBreathed;
+		}
+		
+		
+	}
+	
+	public interface Thot {
+		public boolean hasBreathed = true;
+		
+		public void begone();
+		public boolean isQueen();
+	}
 	
 	public static List<Command> commands;
 	public static AudioPlayerManager playerManager;
